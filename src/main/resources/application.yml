@@ -1,0 +1,27 @@
+server:
+  port: 8070
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/training-notes
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      schema: public
+      minimum-idle: 10
+      maximum-pol-size: 20
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
